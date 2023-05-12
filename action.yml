@@ -4,10 +4,16 @@ name: 'Liquibase Status Action'
 description: 'Generate a list of pending changesets'
 inputs:
   changelogFile: # string
-    description: '*required* The root changelog'
+    description: '*required* The root changelog file'
     required: true
+  changelogParameters: # string
+    description: ''
+    required: false
   contexts: # string
-    description: 'Changeset contexts to match'
+    description: 'Context string to use for filtering'
+    required: false
+  database: # string
+    description: ''
     required: false
   defaultCatalogName: # string
     description: 'The default catalog name to use for the database connection'
@@ -22,10 +28,13 @@ inputs:
     description: 'The JDBC driver properties file'
     required: false
   labelFilter: # string
-    description: 'Changeset labels to match'
+    description: 'Label expression to use for filtering'
     required: false
   password: # string
     description: 'Password to use to connect to the database'
+    required: false
+  skipDatabaseStep: # bool
+    description: ''
     required: false
   url: # string
     description: '*required* The JDBC database connection URL'
@@ -221,13 +230,16 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.changelogFile }}
+    - ${{ inputs.changelogParameters }}
     - ${{ inputs.contexts }}
+    - ${{ inputs.database }}
     - ${{ inputs.defaultCatalogName }}
     - ${{ inputs.defaultSchemaName }}
     - ${{ inputs.driver }}
     - ${{ inputs.driverPropertiesFile }}
     - ${{ inputs.labelFilter }}
     - ${{ inputs.password }}
+    - ${{ inputs.skipDatabaseStep }}
     - ${{ inputs.url }}
     - ${{ inputs.username }}
     - ${{ inputs.verbose }}
