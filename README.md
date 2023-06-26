@@ -6,9 +6,9 @@ Generate a list of pending changesets
 ```yaml
 steps:
 - uses: actions/checkout@v3
-- uses: liquibase-github-actions/status@v4.21.1
+- uses: liquibase-github-actions/status@v4.23.0
   with:
-    # The root changelog file
+    # The root changelog
     # string
     # Required
     changelogFile: ""
@@ -18,20 +18,10 @@ steps:
     # Required
     url: ""
 
-    # 
-    # string
-    # Optional
-    changelogParameters: ""
-
-    # Context string to use for filtering
+    # Changeset contexts to match
     # string
     # Optional
     contexts: ""
-
-    # 
-    # string
-    # Optional
-    database: ""
 
     # The default catalog name to use for the database connection
     # string
@@ -53,7 +43,7 @@ steps:
     # Optional
     driverPropertiesFile: ""
 
-    # Label expression to use for filtering
+    # Changeset labels to match
     # string
     # Optional
     labelFilter: ""
@@ -62,11 +52,6 @@ steps:
     # string
     # Optional
     password: ""
-
-    # 
-    # bool
-    # Optional
-    skipDatabaseStep: ""
 
     # Username to use to connect to the database
     # string
@@ -90,7 +75,7 @@ The liquibase status action accepts all valid liquibase global options as option
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: liquibase-github-actions/status@v4.21.1
+  - uses: liquibase-github-actions/status@v4.23.0
     with:
       changelogFile: ""
       url: ""
