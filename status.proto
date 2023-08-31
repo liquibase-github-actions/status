@@ -15,7 +15,7 @@ service StatusService {
 /* Generate a list of pending changesets */
 message StatusRequest {
   string changelog_file = 1; // *required* The root changelog file
-  optional string contexts = 2; // Context string to use for filtering
+  optional string context_filter = 2; // Context string to use for filtering
   optional string default_catalog_name = 3; // The default catalog name to use for the database connection
   optional string default_schema_name = 4; // The default schema name to use for the database connection
   optional string driver = 5; // The JDBC driver class
