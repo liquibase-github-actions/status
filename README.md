@@ -6,7 +6,7 @@ Generate a list of pending changesets
 ```yaml
 steps:
 - uses: actions/checkout@v3
-- uses: liquibase-github-actions/status@v4.29.2
+- uses: liquibase-github-actions/status@v4.30.0
   with:
     # The root changelog file
     # string
@@ -75,7 +75,7 @@ The liquibase status action accepts all valid liquibase global options as option
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: liquibase-github-actions/status@v4.29.2
+  - uses: liquibase-github-actions/status@v4.30.0
     with:
       changelogFile: ""
       url: ""
